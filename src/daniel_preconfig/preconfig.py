@@ -95,9 +95,9 @@ except ImportError:
 
 #-------------------------------------------------------------------------------
 
-__VERSION__="2.0"
+__VERSION__="2.1"
 
-__DATE__   ="11.7.2021"
+__DATE__   ="20.9.2021"
 
 # code snippets are surrounded by double square brackets:
 CODE = '['
