@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 # DANIEL-PRECONFIG, a (less) versatile configuation file generator
 
 # Copyright Daniel H. Karagory, 2021
@@ -10,7 +8,7 @@
 # Copyright Francois J. Nedelec, EMBL 2010--2017, Cambridge University 2019--2020
 
 """
-# Daniel-Preconfig, a simple python-based config file generator
+# Daniel_Preconfig, a simple python-based config file generator
 
 # SYNOPSIS
 
@@ -19,7 +17,7 @@ It has no dependencies other than python itself and is Free and Opensource
 
 # DESCRIPTION
 
-Daniel-Preconfig reads the template file from top to bottom, identifying snippets
+Daniel_Preconfig reads the template file from top to bottom, identifying snippets
 of code which are surrounded by double square brackets. It then executes this
 code using the python interpreter. If the square brackets start with an equals, the expression's value is
 converted to their string representation, and substituted in place of the code snippet.
@@ -50,7 +48,7 @@ and implements some indent-correction to allow for multi-line statements and exp
 Only one template and one output can be specified at a time.
 # SYNTAX
 
-preconfig [OPTIONS] TEMPLATE_FILE OUTPUT_FILE
+daniel-preconfig [OPTIONS] TEMPLATE_FILE OUTPUT_FILE
 
 # OPTIONS
 
@@ -234,52 +232,11 @@ def make_file(output, text):
 	with open(output, 'w') as f:
 		f.write(text)
 
-def parse(input, output):
+def process_preconfig(input, output):
 	"""
 		process one file, input, and write to the output path
 	"""
 	
 	with open(input, 'r') as file:
 		process(file, output)
-
-def main(args):
-	"""
-		process arguments and perform corresponding task
-	"""
-	
-	input = ""
-	output = ""
-	
-	for arg in args:
-		if input == "":
-			input = arg
-		elif output == "":
-			output = arg
-		else:
-			sys.stderr.write("  Error: too many arguments\n")
-			sys.exit()
-	
-
-	if input == "":
-		sys.stderr.write("  Error: you must specify an input template file\n")
-		sys.exit()
-   	
-	if output == "":
-		sys.stderr.write("  Error: you must specify an output template file\n")
-		sys.exit()
-	
-	parse(input, output)
-		
-
-#-------------------------------------------------------------------------------
-
-if __name__ == "__main__":
-	if len(sys.argv) < 2:
-		print("You must specify a template file (for instructions, invoke with option '--help')")
-	elif sys.argv[1].endswith("help"):
-		print(__doc__)
-	elif sys.argv[1]=='--version':
-		print("This is PRECONFIG version %s (%s)" %(__VERSION__,__DATE__))
-	else:
-		main(sys.argv[1:])
 

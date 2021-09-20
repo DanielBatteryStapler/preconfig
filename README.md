@@ -1,8 +1,8 @@
-# Daniel-Preconfig, a simple python-based config file generator
+# Daniel_Preconfig, a simple python-based config file generator
 
 # SYNOPSIS
 
-Daniel-Preconfig generates files from a template by evaluating double-bracketed Python code.
+Daniel_Preconfig generates files from a template by evaluating double-bracketed Python code.
 It has no dependencies other than python itself and is Free and Opensource
 
 # DESCRIPTION
